@@ -18,7 +18,8 @@ import { useState, useEffect, useRef } from "react";
      karena formatnya bisa beda-beda tiap akun.
 ============================================================= */
 const BANNER_KEY = "c08f303fc0e88a1cdc37f7f6bc369bf9e";
-const NATIVE_SRC = `<script async="async" data-cfasync="false" src="https://pl29824427.effectivecpmnetwork.com/ab7e911393d9872b30f287eed16ab794/invoke.js"></script>`;
+const NATIVE_SRC =
+  "https://pl29824427.effectivecpmnetwork.com/ab7e911393d9872b30f287eed16ab794/invoke.js";
 const POPUNDER_SRC =
   "https://pl29824428.effectivecpmnetwork.com/ea/13/1f/ea131f88233e0a012b98a066cfc03777.js";
 const NATIVE_CONTAINER_ID = "container-ab7e911393d9872b30f287eed16ab794";
