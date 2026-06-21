@@ -146,32 +146,34 @@ export default function DagetHunter() {
   };
 
   const doDecode = () => {
-    const raw = decodeInput.trim();
-    if (!raw) {
-      alert("Masukkan kode dari grup WA dulu ya!");
-      return;
+  const raw = decodeInput.trim();
+  if (!raw) {
+    alert("Masukkan kode dari grup WA dulu ya!");
+    return;
+  }
+  try {
+    if (!raw.startsWith(PREFIX) || !raw.includes(SEP)) {
+      throw new Error("Format tidak valid");
     }
-    try {
-      if (!raw.startsWith(PREFIX) || !raw.includes(SEP)) {
-        throw new Error("Format tidak valid");
-      }
-      const parts = raw.substring(PREFIX.length).split(SEP);
-      if (parts.length !== 2) {
-        throw new Error("Kode tidak lengkap");
-      }
-      const decoded = scramble(atob(parts[0] + "=="));
-      if (!decoded.startsWith("http")) {
-        throw new Error("Kode tidak valid atau sudah diubah");
-      }
-      setDecodedLink(decoded);
-      setDecodedOutput(decoded);
-      setShowDecodeResult(true);
-    } catch (e) {
-      alert(
-        "Kode tidak valid. Pastikan kamu menyalin kode dengan lengkap dari grup WA.",
-      );
+    const parts = raw.substring(PREFIX.length).split(SEP);
+    if (parts.length !== 2) {
+      throw new Error("Kode tidak lengkap");
     }
-  };
+
+    const b64 = parts[0];
+    const padding = "=".repeat((4 - (b64.length % 4)) % 4); // 0, 1, atau 2 sesuai kebutuhan
+    const decoded = scramble(atob(b64 + padding));
+
+    if (!decoded.startsWith("http")) {
+      throw new Error("Kode tidak valid atau sudah diubah");
+    }
+    setDecodedLink(decoded);
+    setDecodedOutput(decoded);
+    setShowDecodeResult(true);
+  } catch (e) {
+    alert("Kode tidak valid. Pastikan kamu menyalin kode dengan lengkap dari grup WA.");
+  }
+};
 
   const copyCode = () => {
     navigator.clipboard.writeText(encodedOutput).then(() => {
