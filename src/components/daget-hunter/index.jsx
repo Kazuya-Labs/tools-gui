@@ -3,26 +3,19 @@ import { useState, useEffect, useRef } from "react";
 /* ============================================================
    ADSTERRA SETUP — baca ini dulu
    ============================================================
-   Ganti semua nilai "GANTI_..." di bawah dengan kode/key asli
-   dari dashboard Adsterra kamu (Websites > pilih situs > Ad units).
-
-   1) BANNER_KEY        -> dari unit iklan "Banner 728x90"
-   2) NATIVE_SRC         -> src lengkap <script> dari unit "Native Banner"
-   3) NATIVE_CONTAINER_ID-> id <div> yang diberikan bareng kode Native Banner
-   4) POPUNDER_SRC       -> src lengkap <script> dari unit "Popunder"
-
-   Catatan format Adsterra:
-   - Tiap publisher dapat subdomain/path unik (mis. pl1234567.somecpmnetwork.com/abc123/invoke.js),
-     jadi JANGAN cuma copy contoh di bawah — ambil persis dari dashboard kamu.
-   - Native Banner & Popunder paling aman dipakai APA ADANYA (src persis),
-     karena formatnya bisa beda-beda tiap akun.
+   1) BANNER_KEY  -> dari unit iklan "Banner 728x90"
+   2) NATIVE_SRC  -> src lengkap dari unit "Native Banner" (URL polos, JANGAN
+                     ditempel sebagai tag <script>...</script>)
+   3) NATIVE_CONTAINER_ID -> id <div> yang diberikan bareng kode Native Banner
+   4) POPUNDER_SRC -> src dari unit "Popunder" (disimpan tapi TIDAK dipakai
+                       secara default, lihat catatan di bawah komponen utama)
 ============================================================= */
 const BANNER_KEY = "c08f303fc0e88a1cdc37f7f6bc369bf9e";
 const NATIVE_SRC =
   "https://pl29824427.effectivecpmnetwork.com/ab7e911393d9872b30f287eed16ab794/invoke.js";
+const NATIVE_CONTAINER_ID = "container-ab7e911393d9872b30f287eed16ab794";
 const POPUNDER_SRC =
   "https://pl29824428.effectivecpmnetwork.com/ea/13/1f/ea131f88233e0a012b98a066cfc03777.js";
-const NATIVE_CONTAINER_ID = "container-ab7e911393d9872b30f287eed16ab794";
 
 /* ---------- Banner 728x90 (format atOptions + invoke.js) ---------- */
 function AdsterraBanner({ adKey, width = 728, height = 90 }) {
@@ -82,7 +75,14 @@ function AdsterraNative({ src, containerId }) {
   return <div ref={hostRef} style={{ width: "100%" }} />;
 }
 
-/* ---------- Popunder (script sekali muat per halaman, biasanya trigger di klik pertama) ---------- */
+/* ---------- Popunder ----------
+   SENGAJA TIDAK DIPAKAI di tab decode (lihat pemanggilan di bawah).
+   Popunder memasang click-listener di level document, sehingga BISA ikut
+   kepicu bareng klik tombol "Ambil link daget" — ini berisiko bikin user
+   ngerasa "ketipu" pas lagi nunggu klaim uang. Hook-nya saya biarkan ada
+   kalau suatu saat kamu mau pasang lagi di tempat yang lebih aman
+   (misal hanya di tab "encode", yang dipakai pembuat daget bukan penerima).
+------------------------------------------------------------------ */
 function useAdsterraPopunder(src, active) {
   useEffect(() => {
     if (!active || !src || src.includes("GANTI")) return;
@@ -93,8 +93,6 @@ function useAdsterraPopunder(src, active) {
     script.src = src;
     script.async = true;
     document.body.appendChild(script);
-    // Sengaja tidak di-remove saat unmount — popunder Adsterra didesain
-    // untuk hidup di scope halaman, bukan per komponen.
   }, [src, active]);
 }
 
@@ -113,8 +111,10 @@ export default function DagetHunter() {
   const PREFIX = "DAGET-";
   const SEP = "-V3JaX-";
 
-  // Popunder aktif begitu tab "decode" dibuka, sesuai copy aslinya
-  useAdsterraPopunder(POPUNDER_SRC, activeTab === "decode");
+  // Popunder DIMATIKAN di tab decode supaya tidak bentrok dengan klik
+  // "Ambil link daget". Ganti `false` jadi `activeTab === "encode"` kalau
+  // kamu mau aktifkan khusus untuk pembuat daget (bukan penerima).
+  useAdsterraPopunder(POPUNDER_SRC, false);
 
   const scramble = (str) => {
     let r = "";
@@ -146,34 +146,38 @@ export default function DagetHunter() {
   };
 
   const doDecode = () => {
-  const raw = decodeInput.trim();
-  if (!raw) {
-    alert("Masukkan kode dari grup WA dulu ya!");
-    return;
-  }
-  try {
-    if (!raw.startsWith(PREFIX) || !raw.includes(SEP)) {
-      throw new Error("Format tidak valid");
+    const raw = decodeInput.trim();
+    if (!raw) {
+      alert("Masukkan kode dari grup WA dulu ya!");
+      return;
     }
-    const parts = raw.substring(PREFIX.length).split(SEP);
-    if (parts.length !== 2) {
-      throw new Error("Kode tidak lengkap");
-    }
+    try {
+      if (!raw.startsWith(PREFIX) || !raw.includes(SEP)) {
+        throw new Error("Format tidak valid");
+      }
+      const parts = raw.substring(PREFIX.length).split(SEP);
+      if (parts.length !== 2) {
+        throw new Error("Kode tidak lengkap");
+      }
 
-    const b64 = parts[0];
-    const padding = "=".repeat((4 - (b64.length % 4)) % 4); // 0, 1, atau 2 sesuai kebutuhan
-    const decoded = scramble(atob(b64 + padding));
+      // FIX: hitung padding base64 yang benar (0, 1, atau 2 '='),
+      // bukan asumsi selalu "==" — sebelumnya ini bikin ~2/3 kode gagal decode.
+      const b64 = parts[0];
+      const padding = "=".repeat((4 - (b64.length % 4)) % 4);
+      const decoded = scramble(atob(b64 + padding));
 
-    if (!decoded.startsWith("http")) {
-      throw new Error("Kode tidak valid atau sudah diubah");
+      if (!decoded.startsWith("http")) {
+        throw new Error("Kode tidak valid atau sudah diubah");
+      }
+      setDecodedLink(decoded);
+      setDecodedOutput(decoded);
+      setShowDecodeResult(true);
+    } catch (e) {
+      alert(
+        "Kode tidak valid. Pastikan kamu menyalin kode dengan lengkap dari grup WA.",
+      );
     }
-    setDecodedLink(decoded);
-    setDecodedOutput(decoded);
-    setShowDecodeResult(true);
-  } catch (e) {
-    alert("Kode tidak valid. Pastikan kamu menyalin kode dengan lengkap dari grup WA.");
-  }
-};
+  };
 
   const copyCode = () => {
     navigator.clipboard.writeText(encodedOutput).then(() => {
@@ -381,7 +385,7 @@ export default function DagetHunter() {
               containerId={NATIVE_CONTAINER_ID}
             />
           </div>
-          {/* Popunder tidak butuh slot div — sudah dimuat lewat useAdsterraPopunder di atas */}
+          {/* Popunder sengaja tidak dipasang di sini, lihat catatan di atas */}
         </>
       )}
     </div>
