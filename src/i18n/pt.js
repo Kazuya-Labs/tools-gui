@@ -3,6 +3,17 @@ export default {
   home: {
     heroTitle: "Ferramentas Online Grátis Que Economizam Seu Tempo",
     heroSub: "Sem cadastro, sem download, sem complicação. Abra a ferramenta, cole seu texto e termine em segundos.",
+    title: "Ferramentas Online Grátis — 12+ Ferramentas sem Download | ToolKu",
+    introTitle: "Coleção de Ferramentas Online Grátis e Privadas",
+    intro: "O ToolKu reúne uma coleção de ferramentas online grátis: Daget Hunter, repetidor de texto, extrator de URL e telefones, substituir texto, contador de palavras, conversor de caixa, base64, formatador JSON e um construtor de CV ATS. Sem download e sem cadastro — tudo processado diretamente no seu navegador, então seus dados permanecem privados. Abra a ferramenta, cole seu texto e termine em segundos.",
+    faqTitle: "Perguntas frequentes",
+    faq: [
+      { q: "As ferramentas do ToolKu são realmente grátis?", a: "Sim. Todas são grátis, sem custo, sem conta e sem download." },
+      { q: "Meus dados colados estão seguros?", a: "Seguros. A maioria das ferramentas processa diretamente no seu navegador e não envia dados a servidores." },
+      { q: "Preciso instalar algum aplicativo?", a: "Não. Todas as ferramentas rodam no navegador, seja no celular ou no computador." },
+      { q: "Funciona no celular?", a: "Sim. Todas são responsivas e confortáveis de usar pelo smartphone." },
+      { q: "Por que há anúncios?", a: "Os anúncios ajudam a cobrir os custos operacionais para manter as ferramentas grátis, sem atrapalhar o funcionamento das ferramentas." },
+    ],
   },
   error: {
     heading: "Página não encontrada",
@@ -11,6 +22,12 @@ export default {
     iconAlt: "Ícone de página não encontrada",
   },
   footer: { tagline: "Ferramentas online grátis para tarefas do dia a dia" },
+  seo: {
+    howToTitle: "Como usar",
+    faqTitle: "Perguntas frequentes",
+    relatedTitle: "Ferramentas que você pode precisar",
+    breadcrumbHome: "Início",
+  },
   ui: {
     copy: "Copiar",
     copied: "Copiado!",
@@ -41,6 +58,19 @@ export default {
       desc: "Transforme seu link do Dana Kaget em um código privado e decodifique com um clique. Seguro para compartilhar em grupos do WhatsApp, impossível de ler com ferramentas comuns.",
       cardDesc: "Codifique & decodifique links do Dana Kaget antes de compartilhar.",
       intro: "Compartilhar um link do Dana Kaget publicamente basta para um membro sem noção tirar print e reivindicá-lo primeiro. O DagetHunter esconde o link real atrás de um código embaralhado para que apenas sua comunidade possa desbloqueá-lo aqui. Gere seu código exclusivo em segundos, cole no grupo e deixe os membros decodificarem direto nesta página.",
+      h1: "Daget Hunter Online — Codifique e Decodifique Links do Dana Kaget",
+      howTo: [
+        { title: "Cole o link original do Dana Kaget", desc: "Copie o link kaget no app Dana e cole no campo de entrada desta página." },
+        { title: "Clique em Gerar código exclusivo", desc: "O link vira imediatamente um código aleatório com prefixo DAGET-, ilegível para ferramentas comuns." },
+        { title: "Compartilhe no grupo do WhatsApp", desc: "Envie o código ao grupo da sua comunidade — o link real permanece oculto para caçadores de kaget." },
+        { title: "Membros decodificam para resgatar", desc: "Basta o membro colar o código e clicar em decodificar para abrir o link original." },
+      ],
+      faq: [
+        { q: "O que é o Daget Hunter e por que codificar o link do Dana Kaget?", a: "Um link do Dana Kaget compartilhado diretamente no grupo corre o risco de ser resgatado por um membro apressado. O Daget Hunter esconde o link real atrás de um código aleatório que só pode ser aberto por quem decodifica nesta página." },
+        { q: "O código daget pode ser aberto com uma ferramenta base64 comum?", a: "Não. O código DAGET gerado é processado de forma especial, então decodificadores comuns como base64 não produzem um link válido." },
+        { q: "Meu link está seguro ao codificar?", a: "Seguro. Todo o processo de codificação e decodificação acontece no seu navegador — o link ou código não é enviado a nenhum servidor." },
+        { q: "Por que meu código não decodifica?", a: "Verifique se o código foi copiado inteiro, sem cortes na colagem no chat, incluindo o prefixo DAGET- e o final do código." },
+      ],
       ui: {
         srOnly: "DagetHunter — plataforma de criptografia e distribuição de links do Dana Kaget",
         segEncode: "Codificar (criar)",
@@ -73,6 +103,19 @@ export default {
       desc: "Repita qualquer texto N vezes com um separador personalizado: nova linha, espaço, vírgula ou barra. Grátis, instantâneo, roda no navegador.",
       cardDesc: "Repita texto N vezes com um separador personalizado.",
       intro: "Precisa preencher placeholders em massa, testar espaçamentos no design ou criar uma lista repetitiva rápido? Cole seu texto, escolha a quantidade e o separador, e obtenha exatamente a saída que você precisa — tudo processado localmente no seu navegador, sem nada ser enviado.",
+      h1: "Repeater Text Online — Repetidor de Texto Grátis",
+      howTo: [
+        { title: "Cole o texto a repetir", desc: "Digite ou cole o texto no campo de entrada." },
+        { title: "Defina a quantidade de repetições", desc: "Escolha quantas vezes duplicar o texto, entre 1 e 10.000." },
+        { title: "Escolha o separador", desc: "Nova linha, espaço, vírgula, barra ou sem separador, conforme você precisar." },
+        { title: "Copie o resultado", desc: "O resultado aparece na hora e está pronto para placeholders, design ou listas em massa." },
+      ],
+      faq: [
+        { q: "O que é um repetidor de texto online?", a: "Uma ferramenta para duplicar um único texto em N linhas ou colunas de uma vez — por exemplo, preencher placeholders, criar listas ou testar layouts de design." },
+        { q: "Há limite na quantidade de repetições?", a: "A quantidade pode ser definida entre 1 e 10.000, suficiente para qualquer necessidade." },
+        { q: "Posso usar vírgula ou barra como separador?", a: "Pode. Escolha nova linha, espaço, vírgula ou barra conforme o formato necessário." },
+        { q: "O texto é enviado ao servidor?", a: "Não. Tudo é processado localmente no seu navegador e nada é enviado." },
+      ],
       ui: {
         headerTitle: "Repeater Text",
         headerDesc: "Repita o texto quantas vezes precisar",
@@ -97,6 +140,18 @@ export default {
       desc: "Extraia todas as URLs de textos ou parágrafos automaticamente. Um clique, resultados limpos, prontos para copiar.",
       cardDesc: "Extraia todas as URLs de um texto automaticamente.",
       intro: "Copiar links um a um de uma mensagem bagunçada é lento e sujeito a erros. Cole seu texto aqui e o Extract URL encontra cada link instantaneamente — sem duplicatas e organizados, prontos para copiar ou abrir com um toque.",
+      h1: "Extract URL Online — Extraia Todos os Links de um Texto",
+      howTo: [
+        { title: "Cole o texto com links", desc: "Copie a mensagem ou trecho com URLs para o campo de entrada." },
+        { title: "Clique em Extract URL", desc: "Todos os links são detectados automaticamente em um clique." },
+        { title: "Copie o resultado organizado", desc: "URLs sem duplicatas e bem ordenadas — prontas para copiar ou abrir." },
+      ],
+      faq: [
+        { q: "Posso extrair todos os links de um chat do WhatsApp?", a: "Pode. Cole o texto do chat e todos os links https/www são detectados." },
+        { q: "Links duplicados são removidos?", a: "Sim, o resultado é automaticamente deduplicado, sem URLs repetidas." },
+        { q: "Preciso copiar os links um a um?", a: "Não. Todas as URLs são extraídas de uma vez, com um clique." },
+        { q: "Quais formatos de link são suportados?", a: "Links iniciados por http://, https:// e www geralmente são detectados corretamente." },
+      ],
       ui: {
         headerTitle: "Extract URL",
         headerDesc: "Extraia todas as URLs de um texto automaticamente",
@@ -114,6 +169,18 @@ export default {
       desc: "Extraia números de telefone brasileiros e internacionais de um texto — normalizados automaticamente para o formato +55. Grátis e instantâneo.",
       cardDesc: "Extraia números de telefone brasileiros e internacionais.",
       intro: "Listas de vendas, conversas exportadas, respostas de formulários — números de telefone se escondem em textos não estruturados o dia inteiro. Esta ferramenta encontra cada número, normaliza números brasileiros para +55, remove duplicatas e entrega uma lista limpa pronta para colar em qualquer lugar.",
+      h1: "Extract Number Online — Extraia Todos os Números de um Texto",
+      howTo: [
+        { title: "Cole o texto com números", desc: "Chats, listas ou formulários com números de telefone podem ser colados diretamente." },
+        { title: "Clique em Extrair números", desc: "Todos os números são encontrados automaticamente em um clique." },
+        { title: "Copie a lista limpa", desc: "Números brasileiros são normalizados para +55 e duplicatas removidas." },
+      ],
+      faq: [
+        { q: "Posso extrair números de um chat do WhatsApp?", a: "Pode. Números no formato (11) 9xxxx e internacionais são detectados." },
+        { q: "Os números brasileiros viram +55?", a: "Sim, os números brasileiros são normalizados automaticamente para +55, mantendo uniformidade." },
+        { q: "Números duplicados são filtrados?", a: "Sim, duplicatas são automaticamente removidas do resultado." },
+        { q: "Suporta números internacionais?", a: "Suporta. Com as configurações disponíveis, números internacionais também são detectados." },
+      ],
       ui: {
         headerTitle: "Extract Phone Number",
         headerDesc: "Extraia todos os números de telefone de um texto",
@@ -134,6 +201,19 @@ export default {
       desc: "Localize e substitua texto em massa, com opção de diferenciar maiúsculas e suporte a regex. Grátis, instantâneo, sem upload.",
       cardDesc: "Localize e substitua texto em massa, com suporte a regex.",
       intro: "Editar dezenas de linhas uma por uma desperdiça minutos que você não tem. Cole seu texto de origem, diga ao Replace Text o que procurar e pelo que substituir, ative regex se precisar de padrões e obtenha o resultado inteiro em um clique.",
+      h1: "Replace Text Online — Localize e Substitua em Massa",
+      howTo: [
+        { title: "Cole o texto de origem", desc: "Digite o texto a ser processado." },
+        { title: "Preencha o que localizar e o substituto", desc: "Defina a palavra a localizar e a que vai substituí-la." },
+        { title: "Ajuste opções adicionais", desc: "Ative diferenciação de maiúsculas/minúsculas ou regex se preciso." },
+        { title: "Clique em Substituir texto", desc: "Todas as ocorrências são substituídas de uma vez, com resumo do total." },
+      ],
+      faq: [
+        { q: "Posso substituir palavras em várias linhas de uma vez?", a: "Pode. Todo o texto é processado de uma vez, com um clique." },
+        { q: "Qual a diferença entre replace comum e regex?", a: "Regex permite padrões (ex.: todos os números ou e-mails), não apenas palavras exatas." },
+        { q: "Dá para diferenciar maiúsculas/minúsculas?", a: "Dá, pela opção de diferenciação de maiúsculas/minúsculas." },
+        { q: "Há limite de tamanho do texto?", a: "Textos grandes são processados normalmente, pois tudo roda no seu navegador." },
+      ],
       ui: {
         headerTitle: "Replace Text",
         headerDesc: "Localize e substitua texto em massa",
@@ -158,6 +238,17 @@ export default {
       desc: "Conte palavras, caracteres (com e sem espaços), frases, parágrafos e linhas em tempo real. Grátis e funciona offline.",
       cardDesc: "Conte palavras, caracteres, linhas e frases.",
       intro: "Redações, posts sociais, descrições de produto — saber a contagem exata importa. O Word Counter mostra palavras, caracteres (com e sem espaços), frases, parágrafos e linhas ao vivo enquanto você digita, para você saber exatamente sua posição o tempo todo.",
+      h1: "Word Counter Online — Conte Palavras, Caracteres e Linhas",
+      howTo: [
+        { title: "Digite ou cole seu texto", desc: "Coloque o texto direto no campo de entrada." },
+        { title: "Veja estatísticas em tempo real", desc: "Contagem de palavras, caracteres (com/sem espaços), frases, parágrafos e linhas é exibida enquanto você digita." },
+      ],
+      faq: [
+        { q: "Qual o tamanho máximo do texto?", a: "Esta ferramenta conta textos longos facilmente, sem limite rígido." },
+        { q: "Diferença entre caracteres com e sem espaços?", a: "Caracteres sem espaços contam só letras e símbolos — útil para limites de bio ou username." },
+        { q: "Funciona offline?", a: "Funciona. Após carregar a página, toda a contagem roda no seu navegador." },
+        { q: "É preciso para o português?", a: "Sim, a contagem é baseada em regras padrão de espaçamento aplicáveis ao texto em português." },
+      ],
       ui: {
         headerTitle: "Word Counter",
         headerDesc: "Conte palavras, caracteres, linhas e frases",
@@ -176,6 +267,18 @@ export default {
       desc: "Converta texto para UPPER, lower, Title Case, camelCase, PascalCase, snake_case e kebab-case. Grátis, instantâneo, todas as conversões de uma vez.",
       cardDesc: "Converta o texto para 8 formatos de caixa de uma vez.",
       intro: "Uma única string muitas vezes precisa de sete formatos diferentes — para código, títulos, nomes de arquivo ou relatórios. O Case Converter transforma seu texto em 8 caixas simultaneamente, então basta copiar a que você precisa e seguir em frente.",
+      h1: "Case Converter Online — Mude a Caixa do Texto",
+      howTo: [
+        { title: "Digite seu texto", desc: "Cole o texto cuja caixa você quer mudar." },
+        { title: "Veja 8 variações de uma vez", desc: "UPPER, lower, Title, camelCase, PascalCase, snake_case e kebab-case aparecem automaticamente." },
+        { title: "Copie a variação necessária", desc: "Basta copiar o formato adequado para código, título ou relatório." },
+      ],
+      faq: [
+        { q: "Dá para converter para camelCase ou snake_case?", a: "Dá, incluindo PascalCase e kebab-case para escrita de código." },
+        { q: "Todas as conversões aparecem de uma vez?", a: "Sim, as oito variações aparecem simultaneamente, sem botões." },
+        { q: "E texto com acentos?", a: "A conversão é precisa para texto comum; para identificadores de código, prefira entrada ASCII." },
+        { q: "Grátis e sem cadastro?", a: "Grátis, sem cadastro, e tudo roda no seu navegador." },
+      ],
       ui: {
         headerTitle: "Case Converter",
         headerDesc: "Converta o texto para vários formatos de caixa",
@@ -191,6 +294,18 @@ export default {
       desc: "Codifique texto para Base64 e decodifique strings Base64 na hora, com suporte total a caracteres Unicode. Grátis e privado.",
       cardDesc: "Codifique & decodifique Base64, com suporte a Unicode.",
       intro: "Base64 aparece em toda parte — tokens de API, e-mails, dados de imagem, arquivos de configuração. Seja codificando uma mensagem ou decodificando uma string que alguém enviou, o Base64 Codec lida com Unicode corretamente e mantém tudo no seu navegador.",
+      h1: "Codificador e Decodificador Base64 Online",
+      howTo: [
+        { title: "Escolha o modo Codificar ou Decodificar", desc: "Defina a direção da conversão conforme a necessidade." },
+        { title: "Digite o texto ou a string Base64", desc: "Cole texto simples para codificar, ou string Base64 para decodificar." },
+        { title: "Copie o resultado", desc: "O resultado aparece na hora, com suporte total a caracteres acentuados e Unicode." },
+      ],
+      faq: [
+        { q: "Dá para decodificar strings com acentos ou emojis?", a: "Dá. Esta ferramenta tem suporte total a Unicode — letras acentuadas, texto em português e emojis." },
+        { q: "É seguro para tokens ou segredos?", a: "O processo ocorre no navegador. Mesmo assim, evite colar segredos sensíveis em qualquer ferramenta online." },
+        { q: "Por que aparece erro de entrada inválida?", a: "Geralmente a string Base64 está incompleta ou contém espaços. Revise sua entrada." },
+        { q: "Para que o Base64 é usado?", a: "Para enviar dados binários como texto — tokens de API, e-mails, dados de imagem e arquivos de configuração." },
+      ],
       ui: {
         headerTitle: "Base64 Codec",
         headerDesc: "Codifique e decodifique Base64 instantaneamente",
@@ -207,6 +322,19 @@ export default {
       desc: "Formate, faça pretty print e minifique JSON com indentação ajustável. Detecte erros na hora com feedback claro. Grátis.",
       cardDesc: "Formate, minifique e valide JSON facilmente.",
       intro: "JSON editado à mão é onde bugs se escondem — uma vírgula faltando, uma chave solta. O JSON Formatter valida sua entrada, aplica pretty print com a indentação que você escolher e minifica para produção, tudo na mesma tela.",
+      h1: "JSON Formatter Online — Pretty Print e Minificação",
+      howTo: [
+        { title: "Cole o JSON", desc: "Digite o JSON de uma API, resultado copiado ou arquivo de configuração." },
+        { title: "Escolha a indentação e Formate", desc: "Ajuste o tamanho da indentação e clique em Pretty Print." },
+        { title: "Minifique para produção", desc: "Clique em Minificar para uma versão compacta, sem espaços e linhas." },
+        { title: "Corrija se houver erro", desc: "Erros são marcados na hora, com mensagens que indicam a localização do problema." },
+      ],
+      faq: [
+        { q: "Dá para detectar erros no JSON?", a: "Dá. A validação roda instantaneamente com mensagens que indicam onde está o problema." },
+        { q: "Quando minificar?", a: "Para produção — remove espaços e linhas para reduzir o tamanho dos dados." },
+        { q: "A indentação é ajustável?", a: "É, conforme o estilo de escrita de código da sua equipe." },
+        { q: "Os dados são enviados ao servidor?", a: "Não, todo o processamento acontece no seu navegador." },
+      ],
       ui: {
         headerTitle: "JSON Formatter",
         headerDesc: "Formate, faça pretty print e minifique JSON",
@@ -225,6 +353,17 @@ export default {
       desc: "Gere texto lorem ipsum para designs e desenvolvimento. Escolha a quantidade de parágrafos e palavras por parágrafo.",
       cardDesc: "Crie texto placeholder para design & dev.",
       intro: "Antes do texto final chegar, seu design ainda precisa de preenchimento. O Lorem Ipsum gera parágrafos placeholder limpos com exatamente o número de parágrafos e palavras que seu mockup pede — sem copiar e colar de sites aleatórios.",
+      h1: "Gerador de Lorem Ipsum Online",
+      howTo: [
+        { title: "Defina a quantidade de parágrafos", desc: "Escolha quantos parágrafos placeholder você precisa." },
+        { title: "Defina as palavras por parágrafo", desc: "Ajuste o tamanho de cada parágrafo ao tamanho do mockup." },
+        { title: "Gere e copie", desc: "Clique em Gerar e copie o resultado para o design de UI." },
+      ],
+      faq: [
+        { q: "Posso definir a quantidade de parágrafos e palavras?", a: "Pode. Ambos são ajustados com precisão conforme o mockup." },
+        { q: "Para que serve o lorem ipsum?", a: "Para preencher placeholders em design e desenvolvimento até o texto final chegar." },
+        { q: "O resultado é sempre igual?", a: "O texto é gerado aleatoriamente, então há variação a cada geração." },
+      ],
       ui: {
         headerTitle: "Gerador de Lorem Ipsum",
         headerDesc: "Crie texto placeholder para design e dev",
@@ -241,6 +380,19 @@ export default {
       desc: "Crie senhas aleatórias fortes com letras, números e símbolos. Veja a força na hora. Gerado localmente, nunca armazenado.",
       cardDesc: "Crie senhas aleatórias fortes instantaneamente.",
       intro: "Uma senha fraca é o caminho mais fácil para qualquer invasor. Este gerador cria senhas verdadeiramente aleatórias a partir dos conjuntos de caracteres que você escolhe — usando a fonte aleatória segura do seu navegador — e informa a força antes de você salvar.",
+      h1: "Gerador de Senha Online — Senhas Aleatórias Fortes",
+      howTo: [
+        { title: "Defina o tamanho e os tipos de caractere", desc: "Escolha o tamanho e a combinação de maiúsculas, minúsculas, números e símbolos." },
+        { title: "Veja o indicador de força", desc: "A força da senha é avaliada instantaneamente." },
+        { title: "Regenere se necessário", desc: "Gere de novo até a combinação atender à necessidade." },
+        { title: "Copie e guarde em segurança", desc: "Guarde num gerenciador de senhas, não em chats ou notas comuns." },
+      ],
+      faq: [
+        { q: "A senha é realmente aleatória?", a: "Sim. A ferramenta usa a fonte aleatória criptográfica do navegador, não um random simples." },
+        { q: "A senha é armazenada ou enviada?", a: "Nunca. Tudo é gerado e exibido direto no seu navegador." },
+        { q: "Qual o tamanho recomendado?", a: "No mínimo 12–16 caracteres com combinação de letras, números e símbolos." },
+        { q: "Posso ajustar os tipos de caractere?", a: "Pode, escolha manualmente a combinação de caracteres desejada." },
+      ],
       ui: {
         headerTitle: "Gerador de Senha",
         headerDesc: "Crie senhas aleatórias fortes",
@@ -263,6 +415,19 @@ export default {
       desc: "Monte um CV profissional e compatível com ATS online. Adicione dados pessoais, experiência, formação, habilidades e idiomas, cheque sua pontuação ATS, exporte em PDF grátis.",
       cardDesc: "Crie um CV compatível com ATS e exporte em PDF grátis.",
       intro: "Recrutadores não leem seu CV primeiro — o software lê. Um Applicant Tracking System escaneia palavras-chave, estrutura e formatação limpa antes de um humano abrir o arquivo. O CV ATS Builder ajuda você a marcar todos os pontos: seções estruturadas, habilidades-chave e um PDF imprimível que os recrutadores realmente aceitam.",
+      h1: "CV ATS Online — Crie um CV Compatível com ATS e Exporte em PDF",
+      howTo: [
+        { title: "Preencha dados pessoais e experiência", desc: "Complete identidade, resumo, experiência, formação, habilidades e idiomas." },
+        { title: "Confira a pontuação ATS", desc: "Aplique as sugestões até a pontuação ficar adequada antes de enviar." },
+        { title: "Exporte para PDF", desc: "Clique em Baixar PDF e obtenha o arquivo CV_Nome_ATS.pdf pronto para candidatura." },
+      ],
+      faq: [
+        { q: "O que é um CV compatível com ATS e por que importa?", a: "ATS é o software que escaneia o CV antes de ele ser lido pelo RH. Estrutura e palavras-chave corretas fazem o CV passar pelos filtros automáticos." },
+        { q: "Qual formato de nome de PDF é recomendado?", a: "Use um formato padrão como CV_Nome_ATS.pdf, de fácil reconhecimento pelos recrutadores." },
+        { q: "A pontuação ATS pode ser vista?", a: "Sim, há uma avaliação ATS instantânea antes de exportar o PDF." },
+        { q: "As habilidades devem usar porcentagem?", a: "Evite. ATS e RH correlacionam palavras-chave técnicas como React ou TypeScript, não números de porcentagem." },
+        { q: "Por que o CV deve ser conciso?", a: "Um CV conciso ajuda ATS e RH a encontrar palavras-chave rapidamente, aumentando a chance de aprovação." },
+      ],
       ui: {
         headerTitle: "CV ATS Builder",
         headerDesc: "Crie um CV profissional e compatível com ATS",

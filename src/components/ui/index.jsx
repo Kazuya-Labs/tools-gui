@@ -21,7 +21,7 @@ export function ToolShell({ children, className = "" }) {
 export function ToolHeader({ bg, bgOpacity, title, desc, titleColor = "#ffffff", descColor = "rgba(255,255,255,0.75)", iconBg = "#ffffff", iconColor, icon }) {
   return (
     <div className="rounded-lg p-6 mb-4 flex items-center gap-3" style={{ backgroundColor: bgOpacity ? `${bg}${bgOpacity}` : bg }}>
-      <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: iconBg }}>
+      <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: iconBg }}>
         {typeof icon === "string" ? (
           <Icon name={icon} className="text-lg" style={{ color: iconColor }} />
         ) : icon}

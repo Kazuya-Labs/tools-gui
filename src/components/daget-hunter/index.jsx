@@ -132,7 +132,7 @@ export default function DagetHunter({ t: T }) {
             <PrimaryButton bg="#1473E6" icon="mdi:gift" onClick={doDecode} className="mt-3 hover:bg-[#0F5DC2] active:bg-[#0D4FA8] hover:scale-100 active:scale-100 transition-colors">{d.btnDecode}</PrimaryButton>
             {showDecodeResult && (
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-3 text-center">
-                <div className="inline-flex w-12 h-12 bg-blue-100 rounded-full items-center justify-center text-blue-600 text-xl mb-2">
+                <div className="inline-flex w-12 h-12 bg-blue-100 rounded-full items-center justify-center text-blue-600 text-xl mb-2 flex-shrink-0">
                   <Icon name="mdi:check" />
                 </div>
                 <div className="text-xs font-medium text-blue-800 uppercase tracking-wide mb-2">{d.successTitle}</div>

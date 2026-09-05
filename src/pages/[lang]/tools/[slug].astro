@@ -15,7 +15,7 @@ import JsonFormatter from '../../../components/json-formatter/index.jsx';
 import LoremIpsum from '../../../components/lorem-ipsum/index.jsx';
 import PasswordGenerator from '../../../components/password-generator/index.jsx';
 import CvBuilder from '../../../components/cv-builder/index.jsx';
-import { LOCALES, TOOLS, getLocale, toolSlug, localePath } from '../../../i18n/index.js';
+import { LOCALES, TOOLS, getLocale, toolDict, toolSlug, localePath, footerLinks } from '../../../i18n/index.js';
 import '../../../styles/global.css';
 
 export function getStaticPaths() {
@@ -38,6 +38,7 @@ const toolMeta = s.tools[toolId];
 const toolConfig = TOOLS.find((x) => x.id === toolId);
 const currentPath = Astro.url.pathname;
 const canonicalPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+const links = footerLinks(lang);
 ---
 
 <html lang={lang}>
@@ -54,20 +55,20 @@ const canonicalPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/
           <li class="text-[#0e0f0c] font-medium" aria-current="page">{toolMeta.title.split(' — ')[0]}</li>
         </ol>
       </nav>
-      {toolId === 'daget-hunter' && <DagetHunter client:load lang={lang} t={s} />}
-      {toolId === 'repeater-text' && <RepeaterText client:load lang={lang} t={s} />}
-      {toolId === 'extract-url' && <ExtractUrl client:load lang={lang} t={s} />}
-      {toolId === 'extract-phone' && <ExtractPhone client:load lang={lang} t={s} />}
-      {toolId === 'replace-text' && <ReplaceText client:load lang={lang} t={s} />}
-      {toolId === 'word-counter' && <WordCounter client:load lang={lang} t={s} />}
-      {toolId === 'case-converter' && <CaseConverter client:load lang={lang} t={s} />}
-      {toolId === 'base64-codec' && <Base64Codec client:load lang={lang} t={s} />}
-      {toolId === 'json-formatter' && <JsonFormatter client:load lang={lang} t={s} />}
-      {toolId === 'lorem-ipsum' && <LoremIpsum client:load lang={lang} t={s} />}
-      {toolId === 'password-generator' && <PasswordGenerator client:load lang={lang} t={s} />}
-      {toolId === 'cv-builder' && <CvBuilder client:load lang={lang} t={s} />}
+      {toolId === 'daget-hunter' && <DagetHunter client:idle lang={lang} t={toolDict(lang, toolId)} />}
+      {toolId === 'repeater-text' && <RepeaterText client:idle lang={lang} t={toolDict(lang, toolId)} />}
+      {toolId === 'extract-url' && <ExtractUrl client:idle lang={lang} t={toolDict(lang, toolId)} />}
+      {toolId === 'extract-phone' && <ExtractPhone client:idle lang={lang} t={toolDict(lang, toolId)} />}
+      {toolId === 'replace-text' && <ReplaceText client:idle lang={lang} t={toolDict(lang, toolId)} />}
+      {toolId === 'word-counter' && <WordCounter client:idle lang={lang} t={toolDict(lang, toolId)} />}
+      {toolId === 'case-converter' && <CaseConverter client:idle lang={lang} t={toolDict(lang, toolId)} />}
+      {toolId === 'base64-codec' && <Base64Codec client:idle lang={lang} t={toolDict(lang, toolId)} />}
+      {toolId === 'json-formatter' && <JsonFormatter client:idle lang={lang} t={toolDict(lang, toolId)} />}
+      {toolId === 'lorem-ipsum' && <LoremIpsum client:idle lang={lang} t={toolDict(lang, toolId)} />}
+      {toolId === 'password-generator' && <PasswordGenerator client:idle lang={lang} t={toolDict(lang, toolId)} />}
+      {toolId === 'cv-builder' && <CvBuilder client:idle lang={lang} t={toolDict(lang, toolId)} />}
       <ToolContent s={s} lang={lang} toolId={toolId} />
     </main>
-    <Footer tagline={s.footer.tagline} />
+    <Footer tagline={s.footer.tagline} links={links} />
   </body>
 </html>

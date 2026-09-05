@@ -7,9 +7,10 @@ export function AdBanner({ adKey, width = 728, height = 90 }) {
     if (!hostRef.current || !adKey || adKey.startsWith("GANTI")) return;
     hostRef.current.innerHTML = "";
 
-    const optionsScript = document.createElement("script");
-    optionsScript.type = "text/javascript";
-    optionsScript.text = `atOptions = {
+    const inject = () => {
+      const optionsScript = document.createElement("script");
+      optionsScript.type = "text/javascript";
+      optionsScript.text = `atOptions = {
       'key' : '${adKey}',
       'format' : 'iframe',
       'height' : ${height},
@@ -17,12 +18,21 @@ export function AdBanner({ adKey, width = 728, height = 90 }) {
       'params' : {}
     };`;
 
-    const invokeScript = document.createElement("script");
-    invokeScript.type = "text/javascript";
-    invokeScript.src = `//www.highperformanceformat.com/${adKey}/invoke.js`;
+      const invokeScript = document.createElement("script");
+      invokeScript.type = "text/javascript";
+      invokeScript.async = true;
+      invokeScript.setAttribute("data-cfasync", "false");
+      invokeScript.src = `//www.highperformanceformat.com/${adKey}/invoke.js`;
 
-    hostRef.current.appendChild(optionsScript);
-    hostRef.current.appendChild(invokeScript);
+      hostRef.current.appendChild(optionsScript);
+      hostRef.current.appendChild(invokeScript);
+    };
+
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(inject, { timeout: 4000 });
+    } else {
+      inject();
+    }
   }, [adKey, width, height]);
 
   return (

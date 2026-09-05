@@ -178,7 +178,7 @@ function CVPreview({ d, lang, data }) {
   const hasContent = data.personal.name || data.experiences.length > 0 || data.educations.length > 0;
   if (!hasContent) {
     return (
-      <div className="bg-white border border-gray-200 rounded-lg p-10 text-center text-gray-400 text-sm">
+      <div className="bg-white border border-gray-200 rounded-lg p-10 text-center text-gray-500 text-sm">
         <Icon name="mdi:file-document" className="text-3xl mb-3 block" />
         {d.emptyPrefill}
       </div>
@@ -319,7 +319,7 @@ export default function CvBuilder({ t: T, lang }) {
             <Field label={d.summaryLabel}>
               <TextArea value={summary} onChange={(e) => setSummary(e.target.value)} rows={5} placeholder={d.phSummary || ""} className="focus:border-[#054d28] focus:ring-2 focus:ring-green-100" />
             </Field>
-            <p className="text-xs text-gray-400 mt-1">{summary.length} {s.ui.chars} {summary.length > 0 && summary.length < 50 ? ` — ${d.summaryHint}` : ""}</p>
+            <p className="text-xs text-gray-500 mt-1">{summary.length} {s.ui.chars} {summary.length > 0 && summary.length < 50 ? ` — ${d.summaryHint}` : ""}</p>
           </div>
         )}
       </Card>
@@ -332,7 +332,7 @@ export default function CvBuilder({ t: T, lang }) {
       {atsResult && (
         <div className="bg-white border border-gray-200 rounded-lg p-5 mb-4">
           <div className="flex items-center gap-3 mb-3">
-            <div className={`w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold ${atsResult.score >= 80 ? "bg-[#054d28] text-white" : atsResult.score >= 50 ? "bg-[#ffd11a] text-[#0e0f0c]" : "bg-[#d03238] text-white"}`}>
+            <div className={`w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold flex-shrink-0 ${atsResult.score >= 80 ? "bg-[#054d28] text-white" : atsResult.score >= 50 ? "bg-[#ffd11a] text-[#0e0f0c]" : "bg-[#d03238] text-white"}`}>
               {atsResult.score}
             </div>
             <div>

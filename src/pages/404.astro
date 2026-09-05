@@ -3,13 +3,14 @@ import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import SeoHead from '../components/layout/SeoHead.astro';
 import { Icon } from 'astro-icon/components';
-import { getLocale } from '../i18n/index.js';
+import { getLocale, footerLinks } from '../i18n/index.js';
 import '../styles/global.css';
 
 const s = getLocale('id');
 const currentPath = Astro.url.pathname;
 const pageTitle = `404 — ${s.error.heading} | ToolKu`;
 const pageDesc = s.error.desc;
+const links = footerLinks('id');
 ---
 
 <html lang="id">
@@ -27,6 +28,6 @@ const pageDesc = s.error.desc;
         <Icon name="mdi:home" class="text-base" /> {s.error.back}
       </a>
     </main>
-    <Footer tagline={s.footer.tagline} />
+    <Footer tagline={s.footer.tagline} links={links} />
   </body>
 </html>

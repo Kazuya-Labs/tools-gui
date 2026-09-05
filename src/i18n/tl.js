@@ -3,6 +3,17 @@ export default {
   home: {
     heroTitle: "Libreng Online Tools na Tunay na Nakakatipid ng Oras Mo",
     heroSub: "Walang sign-up, walang download, walang abala. Buksan ang tool, i-paste ang iyong text, at matapos sa ilang segundo.",
+    title: "Libreng Online Tools — 12+ Tools walang Download | ToolKu",
+    introTitle: "Koleksyon ng Libreng Online Tools at Pribado",
+    intro: "Dinadala ng ToolKu ang koleksyon ng libreng online tools: Daget Hunter, text repeater, URL at phone number extractor, text replace, word counter, case converter, base64, JSON formatter, at ATS CV builder. Walang download at walang sign-up — lahat ay direktang gumagana sa iyong browser, kaya pribado ang iyong data. Buksan ang tool, i-paste ang iyong text, at tapos sa ilang segundo.",
+    faqTitle: "Mga madalas itanong",
+    faq: [
+      { q: "Libre ba talaga ang mga tools sa ToolKu?", a: "Oo. Libre ang lahat ng tools, walang bayad, walang account na kinakailangan, at walang download." },
+      { q: "Ligtas ba ang data na aking nila-paste?", a: "Ligtas. Karamihan sa mga tools ay direktang nagproseso sa iyong browser at hindi nagpapadala ng data sa server." },
+      { q: "Kailangan bang mag-install ng app?", a: "Hindi. Lahat ng tools ay tumatakbo sa browser, sa phone man o computer." },
+      { q: "Gumagana ba sa phone?", a: "Oo. Ang lahat ng tools ay responsive at komportableng gamitin sa phone." },
+      { q: "Bakit may mga ads?", a: "Tinutulungan ng mga ads na pantakip sa gastos sa operasyon para manatiling libre ang mga tools, at hindi ito nakakaabala sa paggamit ng tools." },
+    ],
   },
   error: {
     heading: "Hindi mahanap ang pahina",
@@ -11,6 +22,12 @@ export default {
     iconAlt: "Icon ng hindi mahanap na pahina",
   },
   footer: { tagline: "Libreng online tools para sa pang-araw-araw na gawain" },
+  seo: {
+    howToTitle: "Paano gamitin",
+    faqTitle: "Mga madalas itanong",
+    relatedTitle: "Mga tool na maaaring kailanganin mo",
+    breadcrumbHome: "Home",
+  },
   ui: {
     copy: "Kopyahin",
     copied: "Nakopya na!",
@@ -41,6 +58,19 @@ export default {
       desc: "Gawing pribadong code ang link ng Dana Kaget at i-decode sa isang click. Ligtas ibahagi sa mga grupo ng WhatsApp, hindi mababasa ng ordinaryong tools.",
       cardDesc: "Encode & decode ng Dana Kaget links bago ibahagi sa grupo.",
       intro: "Ang pagbabahagi ng link ng Dana Kaget nang publiko ay sapat na para may isang miyembrong mag-screenshot at maunang mag-claim. Itinatago ng DagetHunter ang totoong link sa likod ng isang scrambled code para sa iyong komunidad lamang mabubuksan dito. Gumawa ng iyong eksklusibong code sa ilang segundo, i-post sa grupo, at hayaan ang mga miyembrong mag-decode dito mismo.",
+      h1: "Daget Hunter Online — Mag-encode at Mag-decode ng Dana Kaget Links",
+      howTo: [
+        { title: "I-paste ang orihinal na Dana Kaget link", desc: "Kopyahin ang kaget link mula sa Dana app at i-paste ito sa input box sa pahinang ito." },
+        { title: "I-click ang Generate ng eksklusibong code", desc: "Agad na magiging random code na may DAGET- na prefix ang link na hindi mababasa ng ordinaryong tools." },
+        { title: "Ikalat sa WhatsApp group", desc: "Ipadala ang code sa grupo ng iyong komunidad — nananatiling nakatago ang totoong link sa mga nambubunot ng kaget." },
+        { title: "Mag-decode ang miyembro para mag-claim", desc: "Kailangan lang i-paste ng miyembro ang code at i-click ang decode para mabuksan ang orihinal na link." },
+      ],
+      faq: [
+        { q: "Ano ang Daget Hunter at bakit kailangan i-encode ang Dana Kaget link?", a: "Ang Dana Kaget link na direktang nala-paste sa grupo ay pwedeng unahan ng ibang miyembro na nagmamadaling buksan ito. Itinago ng Daget Hunter ang orihinal na link sa likod ng random code para sa mga nag-decode sa pahinang ito lamang mabubuksan." },
+        { q: "Pwede bang buksan ang daget code gamit ang ordinaryong base64 tool?", a: "Hindi. Espesyal nang naproseso ang DAGET code na nabubuo kaya hindi makakapag-produce ng valid na link ang karaniwang decode tools tulad ng base64." },
+        { q: "Ligtas ba ang link ko kapag nag-encode?", a: "Ligtas. Buong proseso ng encode at decode ay tumatakbo sa iyong browser — walang link o code na ipinapadala sa anumang server." },
+        { q: "Bakit hindi valid ang code na aking nini-decode?", a: "Siguraduhing kumpleto ang na-kopyang code nang hindi napuputol sa pag-paste sa chat ng grupo, kasama ang DAGET- na prefix at ang dulo ng code." },
+      ],
       ui: {
         srOnly: "DagetHunter — platform para sa pag-encode at pamamahagi ng link ng Dana Kaget",
         segEncode: "Encode (gumawa)",
@@ -73,6 +103,19 @@ export default {
       desc: "Ulitin ang text nang N beses na may mapipiling separator: bagong linya, espasyo, kuwit, o pipe. Libre, madalian, gumagana sa browser.",
       cardDesc: "Ulitin ang text nang N beses na may espesyal na separator.",
       intro: "Kailangan bang punan ang mga placeholder nang maramihan, subukan ang spacing ng design, o gumawa ng repetitive na listahan nang mabilis? I-paste ang iyong text, piliin ang bilang at separator, at makuha ang eksaktong output na kailangan mo — lahat ay pinoproseso sa lokal sa iyong browser, walang naa-upload kahit saan.",
+      h1: "Repeater Text Online — Libreng Text Repeater",
+      howTo: [
+        { title: "I-paste ang text na uulitin", desc: "I-type o i-paste ang text sa input box." },
+        { title: "Itakda ang bilang ng pag-uulit", desc: "Piliin kung ilang beses idi-duplicate ang text, mula 1 hanggang 10,000." },
+        { title: "Piliin ang separator", desc: "Bagong linya, espasyo, kuwit, pipe, o walang separator ayon sa kailangan." },
+        { title: "Kopyahin ang resulta", desc: "Agad na lumalabas ang resulta at handa nang kopyahin para sa placeholder, design, o mass list." },
+      ],
+      faq: [
+        { q: "Ano ang repeater text?", a: "Tool para i-duplicate ang isang text sa N linya o column nang sabay-sabay — halimbawa, pagpuno ng placeholders, paggawa ng mga listahan, o pagsubok sa layout ng design." },
+        { q: "May limitasyon ba sa bilang ng pag-uulit?", a: "Maaaring itakda ang bilang ng pag-uulit mula 1 hanggang 10,000, sapat para sa anumang pangangailangan." },
+        { q: "Pwede bang gumamit ng kuwit o pipe na separator?", a: "Pwede. Pumili ng bagong linya, espasyo, kuwit, o pipe na separator ayon sa format na kailangan mo." },
+        { q: "Naililipat ba sa server ang text ko?", a: "Hindi. Lahat ng proseso ay nangyayari sa iyong browser at hindi naa-upload kahit saan." },
+      ],
       ui: {
         headerTitle: "Repeater Text",
         headerDesc: "Ulitin ang text hangga't kailangan mo",
@@ -97,6 +140,18 @@ export default {
       desc: "Kunin ang lahat ng URL mula sa text o talata nang awtomatiko. Isang click, malinis na resulta, handa nang kopyahin.",
       cardDesc: "Kunin ang lahat ng URL mula sa text nang awtomatiko.",
       intro: "Ang manu-manong pagkopya ng mga link mula sa magulong mensahe ay mabagal at madaling magkamali. I-paste ang iyong text dito at agad na hahanapin ng Extract URL ang bawat link — na-deduplicate at nakaayos nang maayos, handa nang kopyahin o buksan sa isang tap.",
+      h1: "Extract URL Online — Kunin Lahat ng Link sa Text",
+      howTo: [
+        { title: "I-paste ang text na may links", desc: "Kopyahin ang mensahe o paragraph na may mga URL at i-paste sa input box." },
+        { title: "I-click ang Extract URL", desc: "Awtomatikong matutukoy ang lahat ng link sa isang click." },
+        { title: "Kopyahin ang maayos na resulta", desc: "Dini-duplicate at inaayos ang mga URL — handa nang kopyahin o buksan." },
+      ],
+      faq: [
+        { q: "Pwede bang kunin ang lahat ng link mula sa WhatsApp chat?", a: "Pwede. I-paste ang chat text at makikita ang lahat ng https/www links." },
+        { q: "Inaalis ba ang mga dobleng link?", a: "Oo, awtomatikong nadi-deduplicate ang resulta para walang dobleng URL." },
+        { q: "Kailangan bang isa-isang kopyahin ang links?", a: "Hindi. Lahat ng URL ay kukunin nang sabay-sabay sa isang click." },
+        { q: "Anong URL formats ang sinusuportahan?", a: "Ang mga link na nagsisimula sa http://, https://, at www ay karaniwang tinutukoy nang maayos." },
+      ],
       ui: {
         headerTitle: "Extract URL",
         headerDesc: "Kunin ang lahat ng URL mula sa text nang awtomatiko",
@@ -114,6 +169,18 @@ export default {
       desc: "Kunin ang Philippine at international na numero ng telepono mula sa text — awtomatikong nag-normalize sa +63 format. Libre at madalian.",
       cardDesc: "Kunin ang Philippine at international na numero ng telepono.",
       intro: "Listahan ng sales, na-export na chat, mga sagot sa form — nagtatago ang mga numero ng telepono sa loob ng hindi organisadong text buong araw. Hinahanap ng tool na ito ang bawat numero, nino-normalize ang Philippine numbers sa +63, sinasala ang mga duplicate, at binibigyan ka ng malinis na listahan na handa mong i-paste kahit saan.",
+      h1: "Extract Number Online — Kunin Lahat ng Numero sa Text",
+      howTo: [
+        { title: "I-paste ang text na may mga numero", desc: "Ang chat, listahan, o form na may mga phone number ay pwedeng direktang i-paste." },
+        { title: "I-click ang Extract numbers", desc: "Awtomatikong makikita ang lahat ng numero sa isang click." },
+        { title: "Kopyahin ang malinis na listahan", desc: "Nino-normalize ang Philippine numbers sa +63 at inaalis ang mga duplicate." },
+      ],
+      faq: [
+        { q: "Pwede bang kunin ang phone numbers mula sa WhatsApp chat?", a: "Pwede. Nakikita ang mga numero sa format na 09xx, +639xx, at maging ang mga international numbers." },
+        { q: "Ginagawang +63 ba ang mga Philippine numbers?", a: "Oo, awtomatikong nino-normalize ang Philippine numbers sa +63 para pantay-pantay." },
+        { q: "Finifilter ba ang mga dobleng numero?", a: "Oo, awtomatikong inaalis ang mga duplicate mula sa result." },
+        { q: "Sinusuportahan ba ang mga international number?", a: "Sinusuportahan. Nakikita rin ang mga international numbers gamit ang available na settings." },
+      ],
       ui: {
         headerTitle: "Extract Phone Number",
         headerDesc: "Kunin ang lahat ng numero ng telepono mula sa text",
@@ -134,6 +201,19 @@ export default {
       desc: "Maghanap at palitan ang text nang maramihan, may opsyon sa case sensitivity at suporta sa regex. Libre, madalian, walang upload.",
       cardDesc: "Maghanap at palitan ang text nang maramihan, may regex.",
       intro: "Ang paisa-isang pag-edit ng dose-dosenang linya ay nag-aaksaya ng minutong wala ka. I-paste ang iyong source text, sabihin sa Replace Text kung ano ang hahanapin at ipapalit, buksan ang regex kung kailangan ng pattern, at makuha ang buong resulta sa isang click.",
+      h1: "Replace Text Online — Maghanap at Palitan ang Text nang Maramihan",
+      howTo: [
+        { title: "I-paste ang source text", desc: "Ilagay ang text na gusto mong iproseso." },
+        { title: "Ilagay ang hahanapin at ipapalit", desc: "Itakda ang salita na hahanapin at ang kapalit nito." },
+        { title: "Itakda ang mga karagdagang opsyon", desc: "I-activate ang case sensitivity o regex kung kinakailangan." },
+        { title: "I-click ang Replace text", desc: "Sabay-sabay na mapapalitan ang lahat ng matches na may buod ng bilang." },
+      ],
+      faq: [
+        { q: "Pwede bang palitan ang salita sa maraming linya nang sabay-sabay?", a: "Pwede. Buong text ang pinoproseso nang sabay-sabay sa isang click." },
+        { q: "Ano ang pagkakaiba ng regular replace at regex?", a: "Pinapagana ng regex ang mga pattern (halimbawa, lahat ng numero o email addresses), hindi lamang eksaktong salita." },
+        { q: "Pwede bang i-distinguish ang malalaki at maliliit na letra?", a: "Pwede, sa pamamagitan ng case sensitivity na opsyon." },
+        { q: "May limitasyon ba sa laki ng text?", a: "Nakakaproseso pa rin ng malalaking text dahil lahat ay tumatakbo sa iyong browser." },
+      ],
       ui: {
         headerTitle: "Replace Text",
         headerDesc: "Maghanap at palitan ang text nang maramihan",
@@ -158,6 +238,17 @@ export default {
       desc: "Bilangin ang mga salita, character (may at walang espasyo), pangungusap, talata, at linya sa real time. Libre at gumagana kahit offline.",
       cardDesc: "Bilangin ang salita, character, linya, at pangungusap.",
       intro: "Essay, social post, paglalarawan ng produkto — mahalagang malaman ang eksaktong bilang mo. Binibigyan ka ng Word Counter ng bilang ng salita, character (may at walang espasyo), pangungusap, talata, at linya habang nagti-type ka, para alam mo agad kung saan ka nakatayo.",
+      h1: "Word Counter Online — Bilangin ang Salita, Character at Linya",
+      howTo: [
+        { title: "I-type o i-paste ang iyong text", desc: "Direktang ilagay ang text sa input box." },
+        { title: "Tingnan ang real-time stats", desc: "Sabay-sabay na lalabas ang bilang ng salita, character (may/walang espasyo), pangungusap, talata, at linya habang nagta-type." },
+      ],
+      faq: [
+        { q: "Gaano kahaba ang maximum na text?", a: "Madaling binibilang ng tool na ito ang mahahabang text at walang mahigpit na limitasyon." },
+        { q: "Ano ang pagkakaiba ng character na may at walang espasyo?", a: "Ang character na walang espasyo ay binibilang lamang ang mga letra at simbolo — kapaki-pakinabang para sa bio o username na mga kinakailangan." },
+        { q: "Gumagana ba ito offline?", a: "Gumagana. Kapag nala-load na ang pahina, lahat ng pagbilang ay tumatakbo sa iyong browser." },
+        { q: "Tumpak ba ito para sa Filipino text?", a: "Oo, nakabatay sa karaniwang patakaran sa espasyo ang pagbilang na angkop sa tekstong Filipino." },
+      ],
       ui: {
         headerTitle: "Word Counter",
         headerDesc: "Bilangin ang salita, character, linya, at pangungusap",
@@ -176,6 +267,18 @@ export default {
       desc: "Gawing UPPER, lower, Title Case, camelCase, PascalCase, snake_case, at kebab-case ang text. Libre, madalian, lahat ng conversion sabay-sabay.",
       cardDesc: "Gawing 8 uri ng case ang text, sabay-sabay.",
       intro: "Ang isang string ay madalas nangangailangan ng pitong magkakaibang format — para sa code, mga title, pangalan ng file, o ulat. Gumagawa ang Case Converter ng 8 case nang sabay-sabay, kaya kopyahin mo lang ang kailangan mo at magpatuloy.",
+      h1: "Case Converter Online — Baguhin ang Kaso ng Text",
+      howTo: [
+        { title: "Ilagay ang iyong text", desc: "I-paste ang text na gusto mong baguhin ang format." },
+        { title: "Tingnan ang 8 variant nang sabay-sabay", desc: "Awtomatikong inihahanda ang UPPER, lower, Title, camelCase, PascalCase, snake_case, at kebab-case." },
+        { title: "Kopyahin ang variant na kailangan mo", desc: "Kopyahin mo lang ang format na akma sa iyong code, title, o report." },
+      ],
+      faq: [
+        { q: "Pwede bang i-convert sa camelCase o snake_case?", a: "Pwede, kasama ang PascalCase at kebab-case para sa pagsusulat ng code." },
+        { q: "Sabay-sabay bang lalabas ang lahat ng conversion?", a: "Oo, walong variant ang sabay-sabay na lumalabas nang hindi kailangan ng button." },
+        { q: "Paano kung may accent ang text?", a: "Tumpak ang conversion para sa ordinaryong text; para sa code identifiers, mas mabuting gumamit ng ASCII input." },
+        { q: "Libre at walang sign-up?", a: "Libre, walang sign-up, at lahat ng proseso ay tumatakbo sa iyong browser." },
+      ],
       ui: {
         headerTitle: "Case Converter",
         headerDesc: "Gawing iba't ibang case ang text",
@@ -191,6 +294,18 @@ export default {
       desc: "I-encode ang text sa Base64 at i-decode ang Base64 strings agad-agad, may buong suporta sa Unicode. Libre at pribado.",
       cardDesc: "I-encode at i-decode ang Base64, may Unicode support.",
       intro: "Ang Base64 ay lumalabas kahit saan — API tokens, email, image data, configuration files. Kino-encode mo man ang mensahe o dini-decode ang string na ipinadala sa iyo, tama ang paghawak ng Base64 Codec sa Unicode at nananatili sa iyong browser ang lahat.",
+      h1: "Base64 Encoder & Decoder Online",
+      howTo: [
+        { title: "Piliin ang Encode o Decode mode", desc: "Itakda ang direksyon ng conversion ayon sa iyong pangangailangan." },
+        { title: "Ilagay ang text o Base64 string", desc: "I-paste ang plain text para mag-encode, o Base64 string para mag-decode." },
+        { title: "Kopyahin ang resulta", desc: "Agad na lalabas ang resulta, may kumpletong suporta sa Filipino at Unicode character." },
+      ],
+      faq: [
+        { q: "Pwede bang i-decode ang string na may Filipino text o emoji?", a: "Pwede. Buong Unicode ang sinusuportahan ng tool na ito — ang mga may-accent na letra, Filipino text, at emoji." },
+        { q: "Ligtas ba ito para sa tokens o secrets?", a: "Nagaganap sa browser ang proseso. Gayunpaman, iwasan ang pag-paste ng sensitibong impormasyon sa kahit anong online tool." },
+        { q: "Bakit lumalabas ang invalid input error?", a: "Karaniwang sanhi ito ng hindi kumpletong Base64 string o may kasamang espasyo. Suriin muli ang iyong input." },
+        { q: "Para saan karaniwang ginagamit ang Base64?", a: "Para sa pagpapadala ng binary data sa pamamagitan ng text — API tokens, email, image data, at configuration files." },
+      ],
       ui: {
         headerTitle: "Base64 Codec",
         headerDesc: "I-encode at i-decode ang Base64 agad-agad",
@@ -207,6 +322,19 @@ export default {
       desc: "I-format, i-pretty print, at i-minify ang JSON na may adjustable na indentation. May instant na error feedback. Libre.",
       cardDesc: "I-format, i-minify, at i-validate ang JSON nang madali.",
       intro: "Ang manual na in-edit na JSON ay kung saan tahimik na nakatira ang mga bug — nawawalang kuwit, ligaw na brace. Invalidate ng JSON Formatter ang iyong input, i-pretty print ito gamit ang napili mong indentation, at i-minify para sa production, lahat sa isang screen.",
+      h1: "JSON Formatter Online — Pretty Print at Minify",
+      howTo: [
+        { title: "I-paste ang JSON", desc: "Ilagay ang JSON mula sa API, na-kopyang resulta, o configuration file." },
+        { title: "Piliin ang indent at i-Format", desc: "Itakda ang laki ng indent ayon sa istilo ng code at i-click ang Pretty Print." },
+        { title: "I-minify para sa production", desc: "I-click ang Minify para sa compact na bersyon na walang space at linya." },
+        { title: "Ayusin kung may error", desc: "Agad na minamarka ang mga error na may malinaw na mensahe kung saan ang problema." },
+      ],
+      faq: [
+        { q: "Nakakapag-detect ba ito ng error sa JSON?", a: "Oo. Agad na tumatakbo ang validation na may mensaheng nagpapakita kung nasaan ang problema." },
+        { q: "Kailan kailangang mag-minify?", a: "Para sa production — inaalis ang mga space at linya para mas maliit ang laki ng data." },
+        { q: "Maaari bang i-adjust ang indent?", a: "Oo, ayon sa istilo ng pagsusulat ng code ng iyong team." },
+        { q: "Naililipat ba sa server ang data?", a: "Hindi, lahat ng processing ay nangyayari sa iyong browser." },
+      ],
       ui: {
         headerTitle: "JSON Formatter",
         headerDesc: "I-format, i-pretty print, at i-minify ang JSON",
@@ -225,6 +353,17 @@ export default {
       desc: "Gumawa ng lorem ipsum placeholder text para sa design at development. Piliin ang bilang ng talata at salita sa bawat talata.",
       cardDesc: "Gumawa ng placeholder text para sa design & dev.",
       intro: "Bago dumating ang totoong copy, kailangan pa rin ng laman ang iyong design. Gumagawa ang Lorem Ipsum ng malinis na placeholder paragraphs na may eksaktong bilang ng talata at salita na hinihingi ng iyong mockup — hindi mo na kailangang mag-copy-paste mula sa mga random na website.",
+      h1: "Lorem Ipsum Generator Online",
+      howTo: [
+        { title: "Itakda ang bilang ng talata", desc: "Piliin kung ilang placeholder paragraphs ang kailangan." },
+        { title: "Itakda ang salita bawat talata", desc: "I-adjust ang haba ng bawat talata ayon sa laki ng mockup." },
+        { title: "I-generate at kopyahin", desc: "I-click ang Generate at kopyahin ang resulta para sa UI design." },
+      ],
+      faq: [
+        { q: "Pwede bang i-set ang bilang ng talata at salita?", a: "Pwede. Pareho silang eksaktong ina-adjust ayon sa pangangailangan ng mockup." },
+        { q: "Para saan ginagamit ang lorem ipsum?", a: "Para punan ang placeholders sa design at development bago dumating ang aktwal na copywriting." },
+        { q: "Pareho ba palagi ang resulta?", a: "Random na nabubuo ang text kaya laging may variation bawat generate." },
+      ],
       ui: {
         headerTitle: "Lorem Ipsum Generator",
         headerDesc: "Gumawa ng placeholder text para sa design at dev",
@@ -241,6 +380,19 @@ export default {
       desc: "Gumawa ng malakas na random password na may letra, numero, at simbolo. Tingnan ang lakas agad-agad. Ginawa sa lokal, hindi kailanman iniimbak.",
       cardDesc: "Gumawa ng malakas na random password agad-agad.",
       intro: "Ang mahinang password ay ang pinakamadaling daan para sa sinumang umaatake. Gumagawa ang generator na ito ng tunay na random password mula sa pinili mong character sets — gamit ang secure random source ng iyong browser — at sinasabi kung gaano ito katibay bago mo pa ito i-save.",
+      h1: "Password Generator Online — Malakas na Random Password",
+      howTo: [
+        { title: "Itakda ang haba at uri ng character", desc: "Piliin ang haba at ang kombinasyon ng malalaking letra, maliliit na letra, numero, at simbolo." },
+        { title: "Tingnan ang strength indicator", desc: "Sinusukat kaagad ang lakas ng password." },
+        { title: "I-regenerate kung kinakailangan", desc: "Gumawa muli hanggang mag-akma ang kombinasyon sa pangangailangan." },
+        { title: "Kopyahin at itago nang ligtas", desc: "Itago sa password manager, hindi sa chat o ordinaryong notes." },
+      ],
+      faq: [
+        { q: "Random ba talaga ang password?", a: "Oo. Gumagamit ang tool na ito ng cryptographic random source ng browser, hindi simpleng random." },
+        { q: "Naiimbak ba o naipapadala ang password?", a: "Hindi kailanman. Lahat ay nala-generate at ipinapakita sa iyong browser." },
+        { q: "Gaano kahaba ang inirerekomenda?", a: "Hindi bababa sa 12-16 character na may kombinasyon ng letra, numero, at simbolo." },
+        { q: "Pwede bang ayusin ang uri ng character?", a: "Pwede, manu-manong piliin ang kombinasyon ng mga character na gusto mo." },
+      ],
       ui: {
         headerTitle: "Password Generator",
         headerDesc: "Gumawa ng malalakas na random password",
@@ -263,6 +415,19 @@ export default {
       desc: "Gumawa ng propesyonal, ATS-friendly na CV online. Idagdag ang personal data, experience, education, skills, at languages, tingnan ang ATS score, mag-export ng PDF nang libre.",
       cardDesc: "Gumawa ng ATS-friendly na CV at mag-export ng PDF nang libre.",
       intro: "Hindi muna binabasa ng recruiters ang iyong CV — software ang unang nagbabasa. In-scan ng Applicant Tracking System ang tamang keywords, structure, at malinis na pag-format bago ito buksan ng tao. Tinutulungan ka ng CV ATS Builder na maabot ang lahat: organisadong sections, keyword skills, at printable PDF na talagang tatanggapin ng mga recruiter.",
+      h1: "CV ATS Online — Gumawa ng ATS-Friendly CV at Mag-export ng PDF",
+      howTo: [
+        { title: "Punan ang personal data at experience", desc: "Kumpletuhin ang identidad, summary, experience, education, skills, at languages." },
+        { title: "Tingnan ang ATS score", desc: "Ayusin ang mga mungkahi hanggang pumasa ang score bago isumite ang application." },
+        { title: "I-export sa PDF", desc: "I-click ang Download PDF at makuha ang CV_Name_ATS.pdf na handa nang i-apply." },
+      ],
+      faq: [
+        { q: "Ano ang ATS-friendly CV at bakit mahalaga?", a: "Ang ATS ay software na nag-scan ng CV bago ito basahin ng HR. Ang tamang istruktura at keywords ang nagpapalampas sa CV sa mga automated filters." },
+        { q: "Anong format ng PDF ang inirerekomenda?", a: "Gumamit ng standard na format tulad ng CV_Name_ATS.pdf na madaling makilala ng mga recruiter." },
+        { q: "Nakikita ba ang ATS score?", a: "Oo, may instant na ATS assessment bago mo i-export ang PDF." },
+        { q: "Kailangan bang porsyento ang mga skills?", a: "Iwasan. Ang ATS at HR ay nagma-match ng technical keywords tulad ng React o TypeScript, hindi numero ng porsyento." },
+        { q: "Bakit kailangang maikli ang CV?", a: "Nakatutulong ang maikling CV para mabilis mahanap ng ATS at HR ang mga keywords, kaya mas malaki ang tsansa makapasa." },
+      ],
       ui: {
         headerTitle: "CV ATS Builder",
         headerDesc: "Gumawa ng propesyonal, ATS-friendly na CV",

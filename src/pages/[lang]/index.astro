@@ -3,7 +3,7 @@ import Header from '../../components/layout/Header.astro';
 import Footer from '../../components/layout/Footer.astro';
 import SeoHead from '../../components/layout/SeoHead.astro';
 import { Icon } from 'astro-icon/components';
-import { LOCALES, TOOLS, getLocale, t, localePath } from '../../i18n/index.js';
+import { LOCALES, TOOLS, getLocale, t, localePath, footerLinks } from '../../i18n/index.js';
 import '../../styles/global.css';
 
 export function getStaticPaths() {
@@ -14,6 +14,7 @@ const { lang } = Astro.params;
 const s = getLocale(lang);
 const currentPath = Astro.url.pathname;
 const canonicalPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+const links = footerLinks(lang);
 
 const homeTitle = s.home?.title || `ToolKu — ${t(lang, 'home.heroTitle')}`;
 const homeDesc = t(lang, 'home.heroSub');
@@ -79,6 +80,6 @@ const display = "font-family:Inter,sans-serif;font-feature-settings:'calt'";
       )}
     </main>
 
-    <Footer tagline={t(lang, 'footer.tagline')} />
+    <Footer tagline={t(lang, 'footer.tagline')} links={links} />
   </body>
 </html>

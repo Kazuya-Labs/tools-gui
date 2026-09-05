@@ -31,6 +31,24 @@ export function t(lang, path, vars) {
   return node ?? path;
 }
 
+export function toolDict(lang, toolId) {
+  const d = DICTS[lang] || id;
+  const tool = d.tools?.[toolId];
+  if (!tool) return d;
+  return {
+    ui: d.ui,
+    ats: d.ats,
+    tools: {
+      [toolId]: {
+        slug: tool.slug,
+        title: tool.title,
+        desc: tool.desc,
+        ui: tool.ui,
+      },
+    },
+  };
+}
+
 export function toolSlug(lang, toolId) {
   const node = DICTS[lang]?.tools?.[toolId];
   if (node && node.slug) return node.slug;
@@ -41,6 +59,23 @@ export function toolSlug(lang, toolId) {
 export function localePath(locCode, kind, toolId) {
   if (kind === "tool" && toolId) return `/${locCode}/tools/${toolSlug(locCode, toolId)}/`;
   return `/${locCode}/`;
+}
+
+const FOOTER_TOOLS = ['daget-hunter', 'repeater-text', 'extract-phone', 'password-generator', 'cv-builder', 'base64-codec'];
+
+export function footerLinks(lang) {
+  const d = DICTS[lang] || id;
+  const links = [{ label: d.seo?.breadcrumbHome || 'Home', href: `/${lang}/` }];
+  for (const toolId of FOOTER_TOOLS) {
+    const tool = d.tools?.[toolId];
+    if (tool) {
+      links.push({
+        label: tool.title.split(' — ')[0],
+        href: `/${lang}/tools/${toolSlug(lang, toolId)}/`,
+      });
+    }
+  }
+  return links;
 }
 
 export { LOCALES, SITE_URL, TOOLS, TOOL_IDS };

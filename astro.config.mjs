@@ -70,6 +70,10 @@ export default defineConfig({
     allowedHosts: ["colmex.web.id", "tools.kazuyatech.id"]
   },
 
+  build: {
+    chunkSizeWarningLimit: 1100
+  },
+
   vite: {
     plugins: [tailwindcss()]
   }
