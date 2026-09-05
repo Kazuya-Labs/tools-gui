@@ -1,0 +1,79 @@
+---
+import { Icon } from 'astro-icon/components';
+import { TOOLS, localePath } from '../../i18n/index.js';
+
+const { s, lang, toolId } = Astro.props;
+const meta = s.tools?.[toolId];
+const seo = s.seo || {};
+const related = TOOLS.filter((x) => x.id !== toolId).slice(0, 6);
+const display = `font-family:Inter,sans-serif;font-feature-settings:'calt'`;
+---
+
+<section class="max-w-[680px] mx-auto px-4 pb-10">
+  {(meta?.h1 || meta?.intro) && (
+    <div class="bg-white border border-gray-200 rounded-[30px] p-6 mb-4">
+      {meta?.h1 && (
+        <h2 class="text-xl sm:text-2xl font-black text-[#0e0f0c] mb-2" style={`line-height:0.85;${display}`}>{meta.h1}</h2>
+      )}
+      {meta?.intro && (
+        <p class="text-sm text-gray-600 leading-relaxed" style={`font-weight:400;${display}`}>{meta.intro}</p>
+      )}
+    </div>
+  )}
+
+  {Array.isArray(meta?.howTo) && meta.howTo.length > 0 && (
+    <div class="bg-white border border-gray-200 rounded-[30px] p-6 mb-4">
+      <h2 class="text-lg font-bold text-[#0e0f0c] mb-4" style={display}>{seo.howToTitle || 'How to use'}</h2>
+      <ol class="flex flex-col gap-3">
+        {meta.howTo.map((step, i) => (
+          <li key={i} class="flex gap-3 items-start">
+            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#0e0f0c] text-white flex items-center justify-center text-xs font-medium">{i + 1}</div>
+            <div>
+              <div class="text-sm font-semibold text-[#0e0f0c]" style={display}>{step.title}</div>
+              {step.desc && <p class="text-xs text-gray-600 leading-relaxed mt-0.5" style={`font-weight:400;${display}`}>{step.desc}</p>}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  )}
+
+  {Array.isArray(meta?.faq) && meta.faq.length > 0 && (
+    <div class="bg-white border border-gray-200 rounded-[30px] p-6 mb-4">
+      <h2 class="text-lg font-bold text-[#0e0f0c] mb-3" style={display}>{seo.faqTitle || 'Frequently asked questions'}</h2>
+      <div class="flex flex-col gap-2">
+        {meta.faq.map((item, i) => (
+          <details key={i} class="border border-gray-200 rounded-xl px-4 py-3 group">
+            <summary class="cursor-pointer text-sm font-semibold text-[#0e0f0c] list-none flex items-center justify-between gap-3" style={display}>
+              <span>{item.q}</span>
+              <span class="text-gray-400 group-open:rotate-45 transition-transform flex-shrink-0" aria-hidden="true">+</span>
+            </summary>
+            <p class="text-xs text-gray-600 leading-relaxed mt-2" style={`font-weight:400;${display}`}>{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  )}
+
+  <div class="mb-4">
+    <h2 class="text-lg font-bold text-[#0e0f0c] mb-3" style={display}>{seo.relatedTitle || 'Related tools'}</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {related.map((tool) => {
+        const tmeta = s.tools?.[tool.id];
+        return (
+          <a href={localePath(lang, 'tool', tool.id)} class="group bg-white border border-gray-200 rounded-3xl p-4 no-underline transition-all hover:scale-[1.02] hover:shadow-md active:scale-[0.98]">
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={`background:${tool.color}20`}>
+                <Icon name={tool.icon} class="text-base" style={`color:${tool.color}`} />
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-[#0e0f0c] group-hover:text-[#1473E6] transition-colors" style={display}>{tmeta?.title ? tmeta.title.split(' — ')[0] : tool.id}</h3>
+                {tmeta?.cardDesc && <p class="text-xs text-gray-500 leading-relaxed mt-0.5" style={`font-weight:400;${display}`}>{tmeta.cardDesc}</p>}
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>

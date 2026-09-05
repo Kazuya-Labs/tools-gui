@@ -1,0 +1,84 @@
+---
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import SeoHead from '../../components/layout/SeoHead.astro';
+import { Icon } from 'astro-icon/components';
+import { LOCALES, TOOLS, getLocale, t, localePath } from '../../i18n/index.js';
+import '../../styles/global.css';
+
+export function getStaticPaths() {
+  return LOCALES.map((loc) => ({ params: { lang: loc.code } }));
+}
+
+const { lang } = Astro.params;
+const s = getLocale(lang);
+const currentPath = Astro.url.pathname;
+const canonicalPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+
+const homeTitle = s.home?.title || `ToolKu — ${t(lang, 'home.heroTitle')}`;
+const homeDesc = t(lang, 'home.heroSub');
+const display = "font-family:Inter,sans-serif;font-feature-settings:'calt'";
+---
+
+<html lang={lang}>
+  <SeoHead lang={lang} title={homeTitle} description={homeDesc} path={canonicalPath} kind="home" themeColor="#9fe870" />
+  <body class="bg-[#f9fafb]">
+    <Header lang={lang} currentPath={currentPath} allToolsLabel={t(lang, 'nav.allTools')} langLabel={t(lang, 'nav.langLabel')} />
+
+    <main class="max-w-6xl mx-auto px-4 py-10">
+      <section class="text-center mb-12">
+        <h1 class="text-4xl sm:text-5xl font-black text-[#0e0f0c] mb-3" style="font-family:Inter,sans-serif;line-height:0.85;font-feature-settings:'calt'">{s.home.heroTitle}</h1>
+        <p class="text-base sm:text-lg text-gray-600 max-w-xl mx-auto" style="font-family:Inter,sans-serif;font-weight:600;font-feature-settings:'calt'">{s.home.heroSub}</p>
+      </section>
+
+      {(s.home?.introTitle || s.home?.intro) && (
+        <section class="bg-white border border-gray-200 rounded-[30px] p-6 mb-6">
+          {s.home?.introTitle && (
+            <h2 class="text-xl font-black text-[#0e0f0c] mb-2" style={`line-height:0.85;${display}`}>{s.home.introTitle}</h2>
+          )}
+          {s.home?.intro && (
+            <p class="text-sm text-gray-600 leading-relaxed" style={`font-weight:400;${display}`}>{s.home.intro}</p>
+          )}
+        </section>
+      )}
+
+      <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {TOOLS.map((tool) => {
+          const meta = s.tools[tool.id];
+          return (
+            <a href={localePath(lang, 'tool', tool.id)} class="group bg-white rounded-[30px] border border-gray-200 p-6 no-underline transition-all hover:scale-[1.03] hover:shadow-lg active:scale-[0.98]">
+              <div class="flex items-start gap-4">
+                <div class="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0" style={`background:${tool.color}20`}>
+                  <Icon name={tool.icon} class="text-xl" style={`color:${tool.color}`} />
+                </div>
+                <div>
+                  <h2 class="text-lg font-bold text-[#0e0f0c] mb-1 group-hover:text-[#1473E6] transition-colors" style="font-family:Inter,sans-serif;font-feature-settings:'calt'">{meta.title.split(' — ')[0]}</h2>
+                  <p class="text-sm text-gray-500 leading-relaxed" style="font-family:Inter,sans-serif;font-weight:400;font-feature-settings:'calt'">{meta.cardDesc}</p>
+                </div>
+              </div>
+            </a>
+          );
+        })}
+      </section>
+
+      {Array.isArray(s.home?.faq) && s.home.faq.length > 0 && (
+        <section class="mt-6 bg-white border border-gray-200 rounded-[30px] p-6">
+          <h2 class="text-lg font-bold text-[#0e0f0c] mb-3" style={display}>{s.home.faqTitle || 'Frequently asked questions'}</h2>
+          <div class="flex flex-col gap-2">
+            {s.home.faq.map((item, i) => (
+              <details key={i} class="border border-gray-200 rounded-xl px-4 py-3 group">
+                <summary class="cursor-pointer text-sm font-semibold text-[#0e0f0c] list-none flex items-center justify-between gap-3" style={display}>
+                  <span>{item.q}</span>
+                  <span class="text-gray-400 group-open:rotate-45 transition-transform flex-shrink-0" aria-hidden="true">+</span>
+                </summary>
+                <p class="text-xs text-gray-600 leading-relaxed mt-2" style={`font-weight:400;${display}`}>{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
+    </main>
+
+    <Footer tagline={t(lang, 'footer.tagline')} />
+  </body>
+</html>

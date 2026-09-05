@@ -1,0 +1,73 @@
+---
+import Header from '../../../components/layout/Header.astro';
+import Footer from '../../../components/layout/Footer.astro';
+import SeoHead from '../../../components/layout/SeoHead.astro';
+import ToolContent from '../../../components/layout/ToolContent.astro';
+import DagetHunter from '../../../components/daget-hunter/index.jsx';
+import RepeaterText from '../../../components/repeater-text/index.jsx';
+import ExtractUrl from '../../../components/extract-url/index.jsx';
+import ExtractPhone from '../../../components/extract-phone/index.jsx';
+import ReplaceText from '../../../components/replace-text/index.jsx';
+import WordCounter from '../../../components/word-counter/index.jsx';
+import CaseConverter from '../../../components/case-converter/index.jsx';
+import Base64Codec from '../../../components/base64-codec/index.jsx';
+import JsonFormatter from '../../../components/json-formatter/index.jsx';
+import LoremIpsum from '../../../components/lorem-ipsum/index.jsx';
+import PasswordGenerator from '../../../components/password-generator/index.jsx';
+import CvBuilder from '../../../components/cv-builder/index.jsx';
+import { LOCALES, TOOLS, getLocale, toolSlug, localePath } from '../../../i18n/index.js';
+import '../../../styles/global.css';
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const loc of LOCALES) {
+    for (const tool of TOOLS) {
+      paths.push({
+        params: { lang: loc.code, slug: toolSlug(loc.code, tool.id) },
+        props: { toolId: tool.id },
+      });
+    }
+  }
+  return paths;
+}
+
+const { lang } = Astro.params;
+const { toolId } = Astro.props;
+const s = getLocale(lang);
+const toolMeta = s.tools[toolId];
+const toolConfig = TOOLS.find((x) => x.id === toolId);
+const currentPath = Astro.url.pathname;
+const canonicalPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+---
+
+<html lang={lang}>
+  <SeoHead lang={lang} title={toolMeta.title} description={toolMeta.desc} path={canonicalPath} toolId={toolId} themeColor={toolConfig.themeColor} />
+  <body class="bg-[#f9fafb]">
+    <Header lang={lang} currentPath={currentPath} allToolsLabel={s.nav.allTools} langLabel={s.nav.langLabel} />
+    <main>
+      <nav aria-label="Breadcrumb" class="max-w-[680px] mx-auto px-4 pt-4">
+        <ol class="flex items-center gap-1.5 text-xs text-gray-500">
+          <li>
+            <a href={localePath(lang, 'home')} class="hover:text-[#0e0f0c] transition-colors">{s.seo?.breadcrumbHome || 'Home'}</a>
+          </li>
+          <li aria-hidden="true" class="text-gray-400">/</li>
+          <li class="text-[#0e0f0c] font-medium" aria-current="page">{toolMeta.title.split(' — ')[0]}</li>
+        </ol>
+      </nav>
+      {toolId === 'daget-hunter' && <DagetHunter client:load lang={lang} t={s} />}
+      {toolId === 'repeater-text' && <RepeaterText client:load lang={lang} t={s} />}
+      {toolId === 'extract-url' && <ExtractUrl client:load lang={lang} t={s} />}
+      {toolId === 'extract-phone' && <ExtractPhone client:load lang={lang} t={s} />}
+      {toolId === 'replace-text' && <ReplaceText client:load lang={lang} t={s} />}
+      {toolId === 'word-counter' && <WordCounter client:load lang={lang} t={s} />}
+      {toolId === 'case-converter' && <CaseConverter client:load lang={lang} t={s} />}
+      {toolId === 'base64-codec' && <Base64Codec client:load lang={lang} t={s} />}
+      {toolId === 'json-formatter' && <JsonFormatter client:load lang={lang} t={s} />}
+      {toolId === 'lorem-ipsum' && <LoremIpsum client:load lang={lang} t={s} />}
+      {toolId === 'password-generator' && <PasswordGenerator client:load lang={lang} t={s} />}
+      {toolId === 'cv-builder' && <CvBuilder client:load lang={lang} t={s} />}
+      <ToolContent s={s} lang={lang} toolId={toolId} />
+    </main>
+    <Footer tagline={s.footer.tagline} />
+  </body>
+</html>
