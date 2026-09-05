@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { LOCALES } from '../../i18n/index.js';
+import { LOCALES, TOOLS, toolSlug, localePath } from '../../i18n/index.js';
 
 const {
   lang = 'id',
@@ -10,9 +10,16 @@ const {
 } = Astro.props;
 
 const parts = currentPath.split('/').filter(Boolean).slice(1);
+const toolSlugHere = parts[0] === 'tools' ? parts[1] : undefined;
+const toolId = parts[0] === 'tools'
+  ? TOOLS.find((t) => toolSlug(lang, t.id) === toolSlugHere)?.id
+  : undefined;
 const rest = parts.length ? `/${parts.join('/')}` : '/';
 const homePath = `/${lang}/`;
-const swapUrl = (code) => (rest === '/' ? `/${code}/` : `/${code}${rest}`);
+const swapUrl = (code) => {
+  if (toolId) return localePath(code, 'tool', toolId);
+  return rest === '/' ? `/${code}/` : `/${code}${rest}`;
+};
 ---
 
 <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
