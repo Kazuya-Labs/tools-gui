@@ -1,0 +1,151 @@
+---
+import { LOCALES, localePath, getLocale } from '../../i18n/index.js';
+import { TOOLS } from '../../i18n/index.js';
+
+const SITE_URL = 'https://tools.kazuyatech.id';
+const OG_IMAGE = `${SITE_URL}/og-image.png`;
+
+const {
+  lang = 'id',
+  title,
+  description,
+  path = '/',
+  toolId,
+  kind = 'tool',
+  noindex = false,
+  themeColor = '#0e0f0c',
+} = Astro.props;
+
+const canonical = new URL(path, SITE_URL).toString();
+const tool = toolId ? TOOLS.find((x) => x.id === toolId) : null;
+const dict = getLocale(lang);
+const meta = toolId ? dict.tools?.[toolId] : null;
+const name = toolId ? (meta?.title ?? title).split(' — ')[0].trim() : 'ToolKu';
+const breadcrumbHome = dict.seo?.breadcrumbHome || 'Beranda';
+
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name,
+    description,
+    url: canonical,
+    inLanguage: lang,
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'Any',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'IDR' },
+    ...(tool ? { image: OG_IMAGE } : {}),
+  },
+];
+
+if (kind === 'home') {
+  schemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'ToolKu',
+    url: SITE_URL,
+    inLanguage: lang,
+    description,
+    publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#organization`, name: 'ToolKu' },
+  });
+  schemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${SITE_URL}/#organization`,
+    name: 'ToolKu',
+    url: SITE_URL,
+    logo: { '@type': 'ImageObject', url: OG_IMAGE },
+  });
+  schemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name,
+    itemListElement: TOOLS.map((toolItem, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: (dict.tools?.[toolItem.id]?.title || toolItem.id).split(' — ')[0],
+      url: new URL(localePath(lang, 'tool', toolItem.id), SITE_URL).toString(),
+    })),
+  });
+} else if (toolId && meta) {
+  schemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: breadcrumbHome, item: new URL(localePath('id', 'home'), SITE_URL).toString() },
+      { '@type': 'ListItem', position: 2, name, item: canonical },
+    ],
+  });
+  if (Array.isArray(meta.faq) && meta.faq.length) {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: meta.faq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    });
+  }
+  if (Array.isArray(meta.howTo) && meta.howTo.length) {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'HowTo',
+      name: meta.h1 || name,
+      step: meta.howTo.map((st, i) => ({
+        '@type': 'HowToStep',
+        position: i + 1,
+        name: st.title,
+        text: st.desc,
+      })),
+    });
+  }
+}
+
+const alternates = LOCALES.map((loc) => {
+  const href = new URL(localePath(loc.code, kind, toolId), SITE_URL).toString();
+  return {
+    href,
+    hreflang: loc.code === 'zh-CN' || loc.code === 'pt-BR' ? loc.code : loc.lang,
+  };
+});
+alternates.push({ href: new URL(localePath('id', kind, toolId), SITE_URL).toString(), hreflang: 'x-default' });
+
+const ogLocale = (LOCALES.find((l) => l.code === lang) || LOCALES[0]).ogLocale;
+---
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="generator" content={Astro.generator} />
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+  <meta name="theme-color" content={themeColor} />
+  <link rel="canonical" href={canonical} />
+
+  {!noindex && alternates.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:site_name" content="ToolKu" />
+  <meta property="og:locale" content={ogLocale} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={OG_IMAGE} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={description} />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content={canonical} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={OG_IMAGE} />
+
+  {!noindex && schemas.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}
+</head>
