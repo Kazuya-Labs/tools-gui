@@ -35,7 +35,7 @@ export default defineConfig({
         'gift', 'open-in-new', 'information', 'account-group', 'check',
         'close', 'alert-circle', 'plus', 'account', 'briefcase', 'school',
         'toolbox', 'note', 'dots-horizontal', 'view-list', 'table-row',
-        'translate'
+        'translate', 'email-edit-outline'
       ],
       carbon: ['language']
     }

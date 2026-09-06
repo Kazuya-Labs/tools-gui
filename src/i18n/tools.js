@@ -11,6 +11,7 @@ export const TOOLS = [
   { id: "lorem-ipsum", icon: "mdi:file-document", color: "#868685", themeColor: "#868685" },
   { id: "password-generator", icon: "mdi:key", color: "#454745", themeColor: "#454745" },
   { id: "cv-builder", icon: "mdi:file-account", color: "#054d28", themeColor: "#054d28" },
+  { id: "cover-letter", icon: "mdi:email-edit-outline", color: "#7c3aed", themeColor: "#7c3aed" },
 ];
 
 export const TOOL_IDS = TOOLS.map((t) => t.id);

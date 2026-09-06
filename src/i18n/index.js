@@ -61,7 +61,7 @@ export function localePath(locCode, kind, toolId) {
   return `/${locCode}/`;
 }
 
-const FOOTER_TOOLS = ['daget-hunter', 'repeater-text', 'extract-phone', 'password-generator', 'cv-builder', 'base64-codec'];
+const FOOTER_TOOLS = ['daget-hunter', 'repeater-text', 'extract-phone', 'password-generator', 'cv-builder', 'cover-letter', 'base64-codec'];
 
 export function footerLinks(lang) {
   const d = DICTS[lang] || id;
